@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        .main-div {
+          height: 500px;
+          width: 350px;
+          outline: none;
+        }
+        .header-div {
+          height: 50px;
+          background-color: #3f8bcc;
+          font-weight: bold;
+          color: #FFFFFF;
+          font-size: 50px;
+          border: 6px solid #3f8bcc;
+          border-left-width: 15px;
+          text-align: center;
+        }
+        .sub-header-div {
+          height: 25px;
+          background-color: #3f8bcc;
+          color: #FFFFFF;
+          font-size: 25px;
+          border: 6px solid #3f8bcc;
+          border-left-width: 15px;
+          text-align: center;
+        }
+        .sub-header-2-div {
+          height: 25px;
+          background-color: #3f8bcc;
+          color: #ffffff78;
+          font-size: 10px;
+          border: 6px solid #3f8bcc;
+          border-left-width: 18px;
+          padding-top: 4px;
+          text-align: center;
+        }
+        .default-padding{
+          padding-top: 10px;
+        }
+        .sub-topic-div {
+          width: 350px;
+          background-color: #FFFFFF;
+          color: #008DC9;
+          font-size: 15px;
+          font-weight: bold;
+          border: 6px solid #FFFFFF;
+          border-left-width: 15px;
+        }
+        .topic-data-div {
+        
+          background-color: #FFFFFF;
+          color: #008DC9;
+          font-size: 15px;
+          font-weight: bold;
+          border: 6px solid #FFFFFF;
+          padding-top: 4px;
+        }
+        .td-data{
+          background-color: #008DC9;
+          color: #ffffff;
+          text-align: center;
+          font-size: x-large;
+        }
+        .td-data-header{
+          background-color: #008DC9;
+          color: #ffffff;
+          text-align: center;
+          font-weight: 500;
+        }
+        .td-tot{
+          background-color: #3f8bcc;
+          border-right: 5px solid white;
+          width: 33%;
+        }
+        .td-rec{
+          background-color: #0098a2;
+          border-right: 5px solid white;
+          width: 33%;
+        }
+        .td-death{
+          background-color: #c90029;
+          width: 33%;
+        }
+        .sub-data-div{
+          background-color: #3f8bcc;
+          padding-left: 8px;
+          padding-top: 6px;
+          color: #FFFFFF;
+          font-weight: 500;
+          padding-bottom: 10px;
+          padding-right: 8px;
+          border: 6px solid white;
+          border-top: 0px;
+        }
+        .sub-data-num{
+          background-color: #ffffff;
+          border-right: 6px solid #3f8bcc;
+          color: #3f8bcc;
+          text-align: center;
+          font-size: x-large;
+        }
+        .sub-data-txt{
+          background-color: #ffffff;
+          border-right: 6px solid #3f8bcc;
+          color: #3f8bcc;
+          text-align: center;
+          width: 50%;
+        }
+        .sub-data-test{
+          border-right: 0px;
+        }
+        .header-con{
+          position: fixed;
+          top: 0px;
+          width: 100%;
+        }
+        .body-con{
+          padding-top: 138px;
+        }
+        .footer{
+          text-align: center;
+          padding-bottom: 8px;
+          color: #0000003b;
+          font-size: 10px;
+        }
+      </style>
+    </head>
+    <body style="margin: 0px; width: 350px">
+        <div class="header-con">
+          <div class="header-div">Sri Lanka</div>
+          <div class="sub-header-div">Coronavirus Updates</div>
+          <div class="sub-header-2-div"> <span>Last Updated On: </span> <span id="update-on"></span> </div>
+        </div>
+        <div class="body-con">
+          <canvas id="main-pie-chart" class="default-padding" width="100" height="50"></canvas>
+
+          <div class="topic-data-div">
+            <table style="width:100%; border-spacing: 0px ">
+              <tr>
+                <td class="td-data-header td-tot">Total</td>
+                <td class="td-data-header td-rec">Recoverd</td>
+                <td class="td-data-header td-death">Death</td>
+              </tr>
+              <tr  id="main-sum"></tr>
+            </table>
+          </div>
+
+          <div id="sub-data-grid"> 
+        </div>
+        
+        <div class="footer">Data Source : Health Promotion Bureau, Sri Lanka</div>
+
+        <script src="chart.min.js"></script>
+        <script src="popup.js"></script>
+        
+    </body>
+  </html>
