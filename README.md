@@ -1,4 +1,4 @@
-# Sri Lanka COVID-19 Updates Chrome Extensions
+# Sri Lanka COVID-19 Updates - Chrome Extension
 
 The directory holding the manifest file can be added as an extension in developer mode in its current state.
 
