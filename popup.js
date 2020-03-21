@@ -7,7 +7,7 @@ x.onload = function() {
     document.getElementById('body-con-id').innerHTML = "<canvas id='main-pie-chart' class='default-padding' width='100' height='50'></canvas>"
                                                               +"<div class='topic-data-div' id='td-data-header-id'></div>"
                                                               +"<div id='sub-data-grid'></div>" 
-                                                              +"<div class='footer' id='footer-id'></div>";
+                                                              +"<div class='footer' id='footer-id'>Data Source : Health Promotion Bureau, Sri Lanka</div>";
 
     var ctx = document.getElementById('main-pie-chart').getContext('2d');
 
@@ -23,7 +23,7 @@ x.onload = function() {
     	            ]
     	    }],
     	    labels: [
-    	        'Death',
+    	        'Deaths',
     	        'Total Cases',
     	        'Recovered'
     	    ]
@@ -37,14 +37,14 @@ x.onload = function() {
 
     document.getElementById('td-data-header-id').innerHTML = "<table style='width:100%; border-spacing: 0px '>"
                                                                 +"<tr>"
-                                                                +"<td class='td-data-header td-tot' title='Total local confirmed COVID-19 cases reported in Sri Lanka'>Total</td>"
-                                                                +"<td class='td-data-header td-rec' title='Total local COVID-19 cases recovered and discharged in Sri Lanka'>Recovered</td>"
-                                                                +"<td class='td-data-header td-death' title='Total deaths due to COVID-19 reported in Sri Lanka'>Death</td>"
+                                                                +"<td class='td-data-header td-tot' title='Total confirmed COVID-19 cases reported in Sri Lanka'>Total</td>"
+                                                                +"<td class='td-data-header td-rec' title='Total COVID-19 cases recovered and discharged in Sri Lanka'>Recovered</td>"
+                                                                +"<td class='td-data-header td-death' title='Total deaths due to COVID-19 reported in Sri Lanka'>Deaths</td>"
                                                                 +"</tr>"
                                                                 +"<tr  id='main-sum'></tr>"
                                                                 +"</table>";
 
-    document.getElementById('main-sum').innerHTML = "<td class='td-data td-tot' title='Total local confirmed COVID-19 cases reported in Sri Lanka' >"+statisticalData.data.local_total_cases+"</td> <td class='td-data td-rec' title='Total local COVID-19 cases recovered and discharged in Sri Lanka'>"+statisticalData.data.local_recovered+"</td> <td class='td-data td-death' title='Total deaths due to COVID-19 reported in Sri Lanka'>"+statisticalData.data.local_new_deaths+"</td>";
+    document.getElementById('main-sum').innerHTML = "<td class='td-data td-tot' title='Total confirmed COVID-19 cases reported in Sri Lanka' >"+statisticalData.data.local_total_cases+"</td> <td class='td-data td-rec' title='Total COVID-19 cases recovered and discharged in Sri Lanka'>"+statisticalData.data.local_recovered+"</td> <td class='td-data td-death' title='Total deaths due to COVID-19 reported in Sri Lanka'>"+statisticalData.data.local_new_deaths+"</td>";
 
     var i;
     var subDataDiv = "";
@@ -54,8 +54,8 @@ x.onload = function() {
               			+"<div style='padding-bottom: 6px; '>"+statisticalData.data.hospital_data[i].hospital.name+"</div>"
               			+"<table style='width:100%; border-spacing: 0px' >"
                			+" <tr>"
-                  		+"<td class='sub-data-txt'>Admitted</td>"
-                  		+"<td class='sub-data-txt sub-data-test'>Tested</td>"
+                  		+"<td class='sub-data-txt' title='Total count of patients who are currently on treatment or observation on COVID-19 in "+statisticalData.data.hospital_data[i].hospital.name+"' >On Observation</td>"
+                  		+"<td class='sub-data-txt sub-data-test' title='Total count of patients who have been treated or observed on COVID-19 in "+statisticalData.data.hospital_data[i].hospital.name+"' >Observed</td>"
                 		+"</tr>"
                 		+"<tr>"
                   		+"<td class='sub-data-num' title='Total count of patients who are currently on treatment or observation on COVID-19 in "+statisticalData.data.hospital_data[i].hospital.name+"'>"+statisticalData.data.hospital_data[i].treatment_total+"</td>"
@@ -68,8 +68,6 @@ x.onload = function() {
     document.getElementById('sub-data-grid').innerHTML = subDataDiv;
 
     document.getElementById('update-on').innerHTML = "Last Updated On: "+statisticalData.data.update_date_time;
-
-    document.getElementById('footer-id').innerHTML = "Data Source : Health Promotion Bureau, Sri Lanka";
 
 };
 
