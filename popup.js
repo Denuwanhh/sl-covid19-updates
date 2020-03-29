@@ -15,7 +15,7 @@ x.onload = function() {
         type: 'pie',
         data: {
     	    datasets: [{
-    	        data: [statisticalData.data.local_new_deaths, statisticalData.data.local_total_cases, statisticalData.data.local_recovered],
+    	        data: [statisticalData.data.local_deaths, statisticalData.data.local_total_cases, statisticalData.data.local_recovered],
     	        backgroundColor: [
     	                '#c90029',
     	                '#3f8bcc',
@@ -44,7 +44,7 @@ x.onload = function() {
                                                                 +"<tr  id='main-sum'></tr>"
                                                                 +"</table>";
 
-    document.getElementById('main-sum').innerHTML = "<td class='td-data td-tot' title='Total confirmed COVID-19 cases reported in Sri Lanka' >"+statisticalData.data.local_total_cases+"</td> <td class='td-data td-rec' title='Total COVID-19 cases recovered and discharged in Sri Lanka'>"+statisticalData.data.local_recovered+"</td> <td class='td-data td-death' title='Total deaths due to COVID-19 reported in Sri Lanka'>"+statisticalData.data.local_new_deaths+"</td>";
+    document.getElementById('main-sum').innerHTML = "<td class='td-data td-tot' title='Total confirmed COVID-19 cases reported in Sri Lanka' >"+statisticalData.data.local_total_cases+"</td> <td class='td-data td-rec' title='Total COVID-19 cases recovered and discharged in Sri Lanka'>"+statisticalData.data.local_recovered+"</td> <td class='td-data td-death' title='Total deaths due to COVID-19 reported in Sri Lanka'>"+statisticalData.data.local_deaths+"</td>";
 
     var i;
     var subDataDiv = "";

@@ -1,6 +1,6 @@
 {
    "name":"Sri Lanka COVID-19 Updates",
-   "version":"3.1",
+   "version":"3.2",
    "description":"Provides the current real time situation of the patients reported in Sri Lanka. Data Source: Sri Lanka Health Promotion Bureau",
    "background":{
       "scripts":[
