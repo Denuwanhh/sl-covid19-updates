@@ -50,28 +50,32 @@ x.onload = function() {
 														+"<td class='td-data-header td-rec' title=''></td>"
 														+"<td class='td-data-header td-death' title='Total deaths due to COVID-19 reported in Sri Lanka today'><span style='color: #ffffff7a;'>+"+statisticalData.data.local_new_deaths+"</span></td>";
 
-    var i;
 	var subDataDiv = "";
 
 	chrome.storage.sync.get('latest_news', function(data) {
-		subDataDiv += "<div class='sub-news-div'>"
-								+"<div class='news-header'>Latest News</div>"
-								+"<div class='sub-news-txt'>"+data.latest_news+"</div>"
-						+"</div>"
 
-		document.getElementById('sub-data-grid').innerHTML = subDataDiv;
+		if(typeof data.latest_news !== 'undefined'){
+			subDataDiv += "<div class='sub-news-div'>"
+									+"<div class='news-header'>Latest News</div>"
+									+"<div class='sub-news-txt'>"+data.latest_news+"</div>"
+							+"</div>"
+
+			document.getElementById('sub-data-grid').innerHTML = subDataDiv;
+		}
 	});
 
 	chrome.storage.sync.get('latest_news_link', function(data) {
-		var news_cont = document.getElementsByClassName("sub-news-div");
-		var news_cont_body = document.getElementsByClassName("sub-news-txt");
+		if(typeof data.latest_news_link !== 'undefined'){
+			var news_cont = document.getElementsByClassName("sub-news-div");
+			var news_cont_body = document.getElementsByClassName("sub-news-txt");
 
-		var a = document.createElement('a');
-		a.setAttribute('href',data.latest_news_link);
-		a.setAttribute('class','sub-news-txt');
-		a.setAttribute('target','_blank');
-		a.innerHTML = news_cont_body[0].innerText;
-		news_cont[0].replaceChild(a, news_cont_body[0]);
+			var a = document.createElement('a');
+			a.setAttribute('href',data.latest_news_link);
+			a.setAttribute('class','sub-news-txt');
+			a.setAttribute('target','_blank');
+			a.innerHTML = news_cont_body[0].innerText;
+			news_cont[0].replaceChild(a, news_cont_body[0]);
+		}
 
 	});
 
