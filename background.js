@@ -27,9 +27,9 @@
 			var parser = new DOMParser();
 			var xmlDoc = parser.parseFromString(x.responseText,"text/xml");
 	  
-			chrome.storage.sync.get('updatetime', function(data) {
+			chrome.storage.sync.get('newsupdatetime', function(data) {
 				
-				var time = (data === null || (typeof data.updatetime === 'undefined')) ? 0 : data.updatetime;
+				var time = (data === null || (typeof data.newsupdatetime === 'undefined')) ? 0 : data.newsupdatetime;
 				var new_time = Date.parse(xmlDoc.getElementsByTagNameNS('*','pubDate')[0].childNodes[0].nodeValue);
 	  
 				console.log(news_sources[i])
@@ -37,7 +37,7 @@
 	  
 				if(time < new_time){
 					
-					chrome.storage.sync.set({updatetime: new_time}, function() { 
+					chrome.storage.sync.set({newsupdatetime: new_time}, function() { 
 						console.log("Last updates time Set : " + new_time);
 					});
 
